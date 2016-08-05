@@ -1,0 +1,34 @@
+﻿<Window x:Class="KinectSouls.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:k="http://schemas.microsoft.com/kinect/2013"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:KinectSouls"
+        mc:Ignorable="d"
+        Title="KinectSouls" Height="550" Width="650"
+        Loaded="WindowLoaded"
+        Closing="WindowClosing">
+    <Grid Background="#ffffff">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <k:KinectSensorChooserUI HorizontalAlignment="Center" Grid.Row="0" Name="sensorChooserUi"/>
+        <Viewbox Grid.Row="1" HorizontalAlignment="Center" Stretch="Uniform">
+            <Grid Width="640" Height="480">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <k:KinectRegion Grid.Row="0" Name="kinectRegion" IsCursorVisible="False">
+                    <local:SmoothedUserViewer k:KinectRegion.KinectRegion="{Binding ElementName=kinectRegion}" />
+                </k:KinectRegion>
+                <Image Grid.Row="0" Name="imageTarget" />
+                <Image Grid.Row="0" Name="debugImage" />
+            </Grid>
+        </Viewbox>
+        
+
+    </Grid>
+</Window>
