@@ -22,7 +22,7 @@
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
                 <k:KinectRegion Grid.Row="0" Name="kinectRegion" IsCursorVisible="False">
-                    <local:SmoothedUserViewer k:KinectRegion.KinectRegion="{Binding ElementName=kinectRegion}" />
+                    <k:KinectUserViewer DefaultUserColor="Black" UserColoringMode="Manual" k:KinectRegion.KinectRegion="{Binding ElementName=kinectRegion}" />
                 </k:KinectRegion>
                 <Image Grid.Row="0" Name="imageTarget" />
                 <Image Grid.Row="0" Name="debugImage" />
